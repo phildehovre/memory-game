@@ -19,6 +19,8 @@ window.addEventListener('DOMContentLoaded', () => {
     populateBoard(board)
     const tiles = document.querySelectorAll('.tile')
     initTiles(tiles)
+    const games = document.querySelector('#games')
+    initGames(games)
 })
 
 function initTiles(board) {
@@ -146,4 +148,9 @@ function handleWin() {
     button.addEventListener('click', () => {
         location.reload()
     });
+}
+
+function initGames(games) {
+ const score =  window.localStorage.getItem("score") || 0
+    games.innerText  = score
 }

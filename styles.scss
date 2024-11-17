@@ -2,6 +2,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
 
 }
 
@@ -18,7 +19,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 3rem;
+    gap: 1.5rem;
     position: relative;
 
     .board {
@@ -99,10 +100,6 @@ body {
             box-shadow: 2px 4px 5px 2px rgba(0, 0, 0, 0.445);
             animation: fadeUp 500ms forwards cubic-bezier(.87,-0.01,.4,1.62) ;
 
-            h1 {
-            font-family: Arial, Helvetica, sans-serif;
-            }
-
             button {
                 outline: none;
                 border: transparent;
@@ -123,6 +120,13 @@ body {
                 }
             }
         }
+    }
+    .games_won {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        font-size: 1.2rem;
+        gap: 1rem;
     }
 }
 
