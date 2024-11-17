@@ -1,0 +1,13 @@
+{
+  "name": "memory",
+  "version": "1.0.0",
+  "description": "All assets generated with DALL-E",
+  "main": "scripts-old.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "sass --watch styles.scss:styles.css"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

@@ -18,7 +18,6 @@ window.addEventListener('DOMContentLoaded', () => {
     const board = document.querySelector(".board")
     populateBoard(board)
     const tiles = document.querySelectorAll('.tile')
-
     initTiles(tiles)
 })
 
@@ -107,7 +106,6 @@ function checkMatch() {
 }
 
 function handleMatch() {
-    console.log('Its a match!')
     freezeTile(second)
     updateScore()
     resetChoices()

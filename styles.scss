@@ -1,0 +1,107 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+
+}
+
+body {
+    width: 100%;
+    height:100svh; 
+}
+
+.game_ctn {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    height:100%; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 3rem;
+
+    .board {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+        height: auto;
+        width: 100%;
+        aspect-ratio: 1/1;
+        gap: 1rem;
+        list-style: none;
+
+        .tile {
+            width: 100%;
+            height: 100%;
+            margin: auto auto;
+            border-radius: 5%;
+            perspective: 1000px;
+            position: relative;
+
+            span {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                backface-visibility: hidden; 
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 1.5rem;
+                color: white;
+                border-radius: 10px;
+            }
+        }
+    }
+    .score {
+        width: 100%;
+        height: 20px;
+        box-shadow: 2px 5px 10px 2px rgba(0, 0, 0, 0.089);
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        overflow: hidden;
+        padding: .25rem;
+    }
+    .points {
+        width: 0%;
+        height: 1rem;
+        border-radius: 6px;
+        background: rgb(73, 174, 221);
+        transition: 250ms  ease-in-out all;
+    }
+}
+
+
+.front {
+  height: 100%;
+  transform: rotateY(180deg);
+  transition: transform 0.3s cubic-bezier(.87,-0.01,.4,1.62);
+    box-shadow: 2px 3px 5px 2px rgba(0, 0, 0, 0.315); 
+}
+
+.back {
+    background-image: url('assets/pictures/back.png');
+    background-position: center;
+    background-size: cover;
+    height: 100%;
+    width: auto;
+    transform: rotateY(0deg);
+    transition: transform 0.3s cubic-bezier(.87,-0.01,.4,1.62) ;
+    box-shadow: 2px 3px 5px 2px rgba(0, 0, 0, 0.315); 
+}
+
+.back:not(.show) {
+  transform: rotateY(180deg);
+  transition: transform 0.6s;
+}
+
+
+.show {
+  transform: rotateY(0deg);
+}
+
+.frozen {
+    pointer-events: none;
+}
+
