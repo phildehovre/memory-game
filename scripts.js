@@ -1,5 +1,5 @@
 var  first, second
-var score = 0 
+var score = 8 
 
 
 const imgPaths = [
@@ -109,6 +109,9 @@ function handleMatch() {
     freezeTile(second)
     updateScore()
     resetChoices()
+    if (score == imgPaths.length) {
+        handleWin()
+    }
 }
 function handleMismatch() {
     unfreezeTile(first)
@@ -128,4 +131,19 @@ function updateScore() {
     const points = document.querySelector('.points')
     points.classList.add('points')
     points.style.width = `${12.5 * score}%` 
+    if (score >= imgPaths.length) {
+        handleWin()
+    }
+}
+
+function handleWin() {
+    const modal = document.querySelector('.win_modal')
+    modal.classList.remove('hidden')
+    let score = Number(window.localStorage.getItem("score")) || 0;
+    score += 1
+    window.localStorage.setItem("score", score.toString())
+    const button = document.querySelector('#retry')
+    button.addEventListener('click', () => {
+        location.reload()
+    });
 }

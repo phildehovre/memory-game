@@ -18,6 +18,7 @@ body {
   flex-direction: column;
   justify-content: center;
   gap: 3rem;
+  position: relative;
 }
 .game_ctn .board {
   display: grid;
@@ -67,6 +68,53 @@ body {
   background: rgb(73, 174, 221);
   transition: 250ms ease-in-out all;
 }
+.game_ctn .win_modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.322);
+  z-index: 12;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.game_ctn .win_modal.hidden {
+  display: none;
+}
+.game_ctn .win_modal .modal_content {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 4rem;
+  border-radius: 6%;
+  gap: 1rem;
+  box-shadow: 2px 4px 5px 2px rgba(0, 0, 0, 0.445);
+  animation: fadeUp 500ms forwards cubic-bezier(0.87, -0.01, 0.4, 1.62);
+}
+.game_ctn .win_modal .modal_content h1 {
+  font-family: Arial, Helvetica, sans-serif;
+}
+.game_ctn .win_modal .modal_content button {
+  outline: none;
+  border: transparent;
+  padding: 1.5rem;
+  border-radius: 6px;
+  width: 100%;
+  background-color: dodgerblue;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 250ms all ease-in-out;
+}
+.game_ctn .win_modal .modal_content button:hover {
+  background: transparent;
+  color: dodgerblue;
+  outline: 1px solid dodgerblue;
+}
 
 .front {
   height: 100%;
@@ -97,6 +145,17 @@ body {
 
 .frozen {
   pointer-events: none;
+}
+
+@keyframes fadeUp {
+  0% {
+    transform: translateY(100%) scaleX(80%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0%) scaleX(110%);
+    opacity: 1;
+  }
 }
 
 /*# sourceMappingURL=styles.css.map */
