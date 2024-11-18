@@ -1,18 +1,22 @@
 var  first, second
-var score = 0 
+var score = 8 
 
 
-const imgPaths = [
-    './assets/pictures/cards/chicken1.png',
-    './assets/pictures/cards/chicken2.png',
-    './assets/pictures/cards/politician1.png',
-    './assets/pictures/cards/politician2.png',
-    './assets/pictures/cards/steampunk1.png',
-    './assets/pictures/cards/steampunk2.png',
-    './assets/pictures/cards/treasury1.png',
-    './assets/pictures/cards/treasury2.png',
+const images = [
+    'chicken1.png',
+    'chicken2.png',
+    'politician1.png',
+    'politician2.png',
+    'steampunk1.png',
+    'steampunk2.png',
+    'treasury1.png',
+    'treasury2.png',
 ]
+const path = './assets/pictures/cards/'
 
+const imgPaths = images.map(img => {
+    return path+img
+})
 
 window.addEventListener('DOMContentLoaded', () => {
     const board = document.querySelector(".board")
@@ -144,13 +148,16 @@ function handleWin() {
     let score = Number(window.localStorage.getItem("score")) || 0;
     score += 1
     window.localStorage.setItem("score", score.toString())
-    const button = document.querySelector('#retry')
-    button.addEventListener('click', () => {
-        location.reload()
-    });
+
 }
 
 function initGames(games) {
  const score =  window.localStorage.getItem("score") || 0
     games.innerText  = score
+
+    const button = document.querySelector('#retry')
+    button.addEventListener('click', () => {
+        location.reload()
+
+    });
 }
