@@ -1,5 +1,5 @@
 var  first, second
-var score = 8 
+var score = 0 
 
 
 const images = [
